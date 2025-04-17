@@ -89,7 +89,9 @@
         // Máscara para o campo de percentual (limita a 100%)
         document.getElementById('percentualPago').addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, "");
-            if (value > 100) value = 100;
+            value = (value / 100).toFixed(2);
+            value = value.replace(".", ",");
+            if (parseFloat(value) > 100) value = 100;
             e.target.value = value;
         });
 
